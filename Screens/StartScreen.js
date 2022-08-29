@@ -1,12 +1,11 @@
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
 
 const StartScreen = () => {
-
-
-    return <View>
-        <Text>This is Start Screens</Text>
+  return (
+    <View>
+      <Text>This is Start Screens</Text>
     </View>
-}
+  );
+};
 
-
-export default StartScreen
+export default StartScreen;

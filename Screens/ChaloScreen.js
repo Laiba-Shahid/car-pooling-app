@@ -1,12 +1,11 @@
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
 
 const ChaloScreen = () => {
-
-
-    return <View>
-        <Text>This is chalo Screens</Text>
+  return (
+    <View>
+      <Text>This is chalo Screens</Text>
     </View>
-}
+  );
+};
 
-
-export default ChaloScreen
+export default ChaloScreen;
