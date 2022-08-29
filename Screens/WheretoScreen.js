@@ -1,12 +1,11 @@
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
 
 const WhereToScreen = () => {
-
-
-    return <View>
-        <Text>This is WhereTo Screens</Text>
+  return (
+    <View>
+      <Text>This is WhereTo Screens</Text>
     </View>
-}
+  );
+};
 
-
-export default WhereToScreen
+export default WhereToScreen;

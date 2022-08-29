@@ -8,7 +8,6 @@ const StartScreen = () => {
 
         <Button onPress={() => navigation.navigate("Chalos")} title="chalo"></Button>
     </View>
-}
+};
 
-
-export default StartScreen
+export default StartScreen;

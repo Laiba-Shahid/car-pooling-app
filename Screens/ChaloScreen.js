@@ -11,7 +11,7 @@ const ChaloScreen = () => {
 
         </ImageBackground>
     </View>
-}
+};
 
 const styles = StyleSheet.create({
     container: {

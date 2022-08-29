@@ -1,12 +1,11 @@
-import { View, Text } from "react-native"
+import { View, Text } from "react-native";
 
 const ConfirmPickupScreen = () => {
-
-
-    return <View>
-        <Text>This is Confirm pICKUP Screens</Text>
+  return (
+    <View>
+      <Text>This is Confirm pICKUP Screens</Text>
     </View>
-}
+  );
+};
 
-
-export default ConfirmPickupScreen
+export default ConfirmPickupScreen;
