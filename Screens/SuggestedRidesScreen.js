@@ -6,8 +6,16 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import { getRandom } from "../utils";
 
-const getNewPrice = () => Math.floor(Math.random() * 999);
+const getNewPrice = () => getRandom(100, 500);
+const getTime = () => getRandom(1, 59);
+
+const getRideDetails = () => ({
+  price: getNewPrice(),
+  availableSeats: Math.floor(Math.random() * 2) + 1,
+  time: getTime(),
+});
 
 const carTypes = [
   { id: 1, name: "Honda City", img: require("../assets/cars/city.jpeg") },
@@ -47,120 +55,105 @@ const SuggestedRidesScreen = ({}) => {
       name: "Earnest Green",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 3,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "2",
       name: "Winston Orn",
       img: require("../assets/driver-pictures/2.jpeg"),
       carId: 5,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "3",
       name: "Carlton Collins",
       img: require("../assets/driver-pictures/3.jpeg"),
       carId: 1,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "4",
       name: "Malcolm Labadie",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 2,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "5",
       name: "Michelle Dare",
       img: require("../assets/driver-pictures/2.jpeg"),
       carId: 6,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "6",
       name: "Carlton Zieme",
       img: require("../assets/driver-pictures/3.jpeg"),
       carId: 7,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "7",
       name: "Jessie Dickinson",
       img: require("../assets/driver-pictures/2.jpeg"),
       carId: 2,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "8",
       name: "Julian Gulgowski",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 3,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "9",
       name: "Ellen Veum",
       img: require("../assets/driver-pictures/3.jpeg"),
       carId: 4,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "10",
       name: "Lorena Rice",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 2,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "11",
       name: "Carlton Zieme",
       img: require("../assets/driver-pictures/2.jpeg"),
       carId: 5,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "12",
       name: "Jessie Dickinson",
       img: require("../assets/driver-pictures/3.jpeg"),
       carId: 6,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "13",
       name: "Julian Gulgowski",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 5,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "14",
       name: "Ellen Veum",
       img: require("../assets/driver-pictures/2.jpeg"),
       carId: 7,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
     {
       id: "15",
       name: "Lorena Rice",
       img: require("../assets/driver-pictures/1.jpeg"),
       carId: 2,
-      price: getNewPrice(),
-      availableSeats: Math.floor(Math.random() * 2) + 1,
+      ...getRideDetails(),
     },
   ];
 
@@ -202,6 +195,15 @@ const SuggestedRidesScreen = ({}) => {
           <View style={styles.carDetailsSection}>
             <Text style={styles.carName}>{car.name}</Text>
             <Text>{ride.name}</Text>
+            <View style={styles.timeView}>
+              <Image
+                source={require("../assets/time.png")}
+                style={styles.timeIcon}
+              />
+              <Text style={styles.time}>
+                In {ride.time} {ride.time === 1 ? "min" : "mins"}
+              </Text>
+            </View>
           </View>
           <View style={styles.rideDetailsSection}>
             <View style={styles.lowestPriceView}>
@@ -213,17 +215,10 @@ const SuggestedRidesScreen = ({}) => {
                 />
               )}
             </View>
-
-            <Text>{ride.availableSeats} seats available</Text>
-            {/* {bestPriceRide.id === ride.id && (
-              <View style={styles.lowestPriceView}>
-                <Image
-                  source={require("../assets/low-price.png")}
-                  style={styles.lowestPriceIcon}
-                />
-                <Text style={styles.lowestPriceText}>LOWEST PRICE</Text>
-              </View>
-            )} */}
+            <Text style={styles.availableSeats}>
+              {ride.availableSeats}
+              {ride.availableSeats === 1 ? " seat" : " seats"} available
+            </Text>
           </View>
         </View>
       </TouchableHighlight>
@@ -258,11 +253,12 @@ const styles = StyleSheet.create({
   listContainer: { paddingTop: 10 },
   row: {
     flexDirection: "row",
-    padding: 20,
+    padding: 10,
     fontSize: 15,
     marginLeft: 10,
     marginRight: 10,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   carName: { fontWeight: "bold", textAlign: "left" },
   price: { fontWeight: "bold", color: "#28bc4e", textAlign: "right" },
@@ -272,6 +268,7 @@ const styles = StyleSheet.create({
   },
   rideDetailsSection: {
     alignSelf: "center",
+    width: 108,
   },
   rowSeparator: { height: 1, backgroundColor: "#f5f6f8", marginHorizontal: 10 },
   emptyListPlaceholderText: {
@@ -285,16 +282,29 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   lowestPriceView: {
-    // justifyContent: "center",
+    justifyContent: "space-between",
     // backgroundColor: "gold",
     alignItems: "center",
     flexDirection: "row",
-    padding: 3,
     borderRadius: 5,
-    width: 80,
   },
-  lowestPriceIcon: { width: 20, height: 20, tintColor: "#28bc4e" },
+  availableSeats: {
+    // backgroundColor: "blue",
+    // paddingLeft: 2,
+    // flex: 1,
+  },
+  lowestPriceIcon: { width: 20, height: 20, tintColor: "gold" },
   lowestPriceText: { fontSize: 8, fontWeight: "bold", color: "white" },
+  timeIcon: { width: 12, height: 12, tintColor: "black" },
+  timeView: {
+    // backgroundColor: "gold",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  time: {
+    fontWeight: "bold",
+    paddingLeft: 4,
+  },
 });
 
 export default SuggestedRidesScreen;
