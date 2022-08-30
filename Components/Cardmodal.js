@@ -18,6 +18,7 @@ const CardModal = ({ children, visible, setVisible }) => {
           justifyContent: "center",
           height: 300,
           alignItems: "center",
+          borderRadius: 12,
         }}
       >
         {children}

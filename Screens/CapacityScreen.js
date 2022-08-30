@@ -19,6 +19,22 @@ const CapacityScreen = () => {
     console.log("seat select", seatId);
   };
 
+  const getColor = (id) => {
+    const obj = selectedSeats.forEach((object) => {
+      if (object.id === id) {
+        console.log("if id");
+        if (object.type === 1) {
+          console.log("if type");
+          return "blue";
+        } else {
+          return "red";
+        }
+      }
+    });
+
+    return "#35b24c";
+  };
+
   const addToSeatArrFunc = (seatType) => {
     const alreadySelectedSeats = [...selectedSeats];
 
@@ -320,7 +336,7 @@ const CapacityScreen = () => {
                 style={{
                   width: 70,
                   height: 70,
-                  backgroundColor: "#35b24c",
+                  backgroundColor: getColor("s5"),
                   borderRadius: 20,
                   justifyContent: "space-between",
                 }}
