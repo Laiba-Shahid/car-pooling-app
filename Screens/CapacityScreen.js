@@ -32,7 +32,7 @@ const CapacityScreen = () => {
                 <View style={{ width: 250, height: 250, borderRadius: 20, justifyContent: 'center' }}>
                     <>
                         <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom, }}>
-                            <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }} onPress={() => {
+                            <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#f5bc42", borderRadius: 12, justifyContent: 'space-between' }} onPress={() => {
                                 console.log('selectSeat')
                             }} />
                             <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>My Seat</Text>
@@ -57,13 +57,9 @@ const CapacityScreen = () => {
 
             </CardModal >
             <View >
-
                 <Text style={{ ...GlobalStyles.leftmainheader, ...GlobalStyles.mainmarginbottom, ...GlobalStyles.mainmargintop }}>
                     Choose Your Seats
                 </Text>
-
-
-
                 <View style={{ width: 250, height: 250, backgroundColor: "#f0f3f5", borderRadius: 20, justifyContent: 'space-around', padding: 10, alignSelf: 'center' }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s1'} onPress={() => selectSeat('s1')} />
@@ -85,6 +81,10 @@ const CapacityScreen = () => {
 
                     </View>
                 </View>
+            </View>
+
+            <View>
+
             </View>
             <FullButton buttonAction={() => { console.log('ride started page ') }} title={'BOOK KARO'} />
         </View >
