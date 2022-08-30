@@ -1,9 +1,9 @@
 import { View, Text } from "react-native";
-import CardModal from "../Components/Cardmodal";
+import CardModal from "../components/Cardmodal";
 import { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { FullButton } from "../Components/FullButton";
-import GlobalStyles from "../Styles/GlobalStyles";
+import { FullButton } from "../components/FullButton";
+import GlobalStyles from "../styles/GlobalStyles";
 const CapacityScreen = () => {
   const [visible, setVisible] = useState(false);
   const [selectedSeat, setSelectedSeat] = useState([]);
