@@ -107,7 +107,6 @@ const CapacityScreen = () => {
                   justifyContent: "space-between",
                 }}
               />
-
               <Text
                 style={{
                   ...GlobalStyles.mainmarginleft,
@@ -120,7 +119,6 @@ const CapacityScreen = () => {
           </>
         </View>
       </CardModal>
-
       <View>
         <View>
           <Text
