@@ -20,8 +20,8 @@ const CardModal = ({ children, visible, setVisible }) => {
                 onBackdropPress={toggleOverlay}
                 fullScreen={false}
                 overlayStyle={{
-                    // justifyContent: "center",
-                    height: 260,
+                    justifyContent: "center",
+                    height: 300,
                     alignItems: "center",
                 }}
             >
