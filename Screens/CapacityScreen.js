@@ -201,9 +201,16 @@ const CapacityScreen = () => {
               borderWidth: 1,
               borderColor: "#ADADAD",
               padding: 20,
+              alignItems: "center",
             }}
           >
-            <View style={{ flexDirection: "row" }}>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+                width: 250,
+              }}
+            >
               <View style={{ alignItems: "center", marginRight: 20 }}>
                 <View
                   style={{
@@ -239,18 +246,6 @@ const CapacityScreen = () => {
                   }}
                 />
                 <Text>Female</Text>
-              </View>
-              <View style={{ alignItems: "center", marginRight: 20 }}>
-                <View
-                  style={{
-                    width: 20,
-                    height: 20,
-                    backgroundColor: "#f5bc42",
-                    borderRadius: 5,
-                    justifyContent: "space-between",
-                  }}
-                />
-                <Text>My seat</Text>
               </View>
             </View>
           </View>
@@ -288,7 +283,6 @@ const CapacityScreen = () => {
                   height: 70,
                   backgroundColor: "#35b24c",
                   borderRadius: 20,
-                  justifyContent: "space-between",
                 }}
                 id={"s1"}
                 onPress={() => selectSeat("s1")}
@@ -300,13 +294,12 @@ const CapacityScreen = () => {
                   height: 70,
                   backgroundColor: "#ADADAD",
                   borderRadius: 20,
-                  justifyContent: "space-between",
                 }}
                 id={"s2"}
               />
             </View>
             <View
-              style={{ flexDirection: "row", justifyContent: "space-around" }}
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
             >
               <TouchableOpacity
                 style={{
@@ -314,7 +307,6 @@ const CapacityScreen = () => {
                   height: 70,
                   backgroundColor: "#35b24c",
                   borderRadius: 20,
-                  justifyContent: "space-between",
                 }}
                 id={"s3"}
                 onPress={() => selectSeat("s3")}
@@ -326,7 +318,6 @@ const CapacityScreen = () => {
                   height: 70,
                   backgroundColor: "#35b24c",
                   borderRadius: 20,
-                  justifyContent: "space-between",
                 }}
                 id={"s4"}
                 onPress={() => selectSeat("s4")}
