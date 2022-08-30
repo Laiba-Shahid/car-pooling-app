@@ -6,12 +6,10 @@ const GlobalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#E5E5E5",
   },
-
   centermainHeader: {
     fontSize: 20,
     fontWeight: "700",
   },
-
   leftmainheader: {
     fontSize: 20,
     flexWrap: "wrap",
