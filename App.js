@@ -15,12 +15,21 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="Start"
+          component={StartScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WhereTo"
+          component={WhereToScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="Chalo"
           component={ChaloScreen}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="Start" component={StartScreen} />
-        <Stack.Screen name="WhereTo" component={WhereToScreen} />
+
         <Stack.Screen name="ConfirmPickup" component={ConfirmPickupScreen} />
         <Stack.Screen
           name="Capacity"
