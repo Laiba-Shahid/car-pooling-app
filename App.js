@@ -7,6 +7,7 @@ import WhereToScreen from "./Screens/WheretoScreen";
 import ConfirmPickupScreen from "./Screens/Confirmpickup";
 import ChaloScreen from "./Screens/ChaloScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import CapacityScreen from "./Screens/CapacityScreen";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -17,7 +18,7 @@ export default function App() {
         <Stack.Screen name="Start" component={StartScreen} />
         <Stack.Screen name="WhereTo" component={WhereToScreen} />
         <Stack.Screen name="ConfirmPickup" component={ConfirmPickupScreen} />
-
+        <Stack.Screen name="Capacity" component={CapacityScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
