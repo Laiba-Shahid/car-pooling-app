@@ -1,12 +1,15 @@
 import { View, Text } from "react-native";
 import CardModal from "../components/Cardmodal";
 import { useEffect, useState } from "react";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
 import { FullButton } from "../components/FullButton";
 import GlobalStyles from "../styles/GlobalStyles";
+
+const seatTypes = { MALE: 1, FEMALE: 2 };
+
 const CapacityScreen = () => {
   const [visible, setVisible] = useState(false);
-  const [selectedSeat, setSelectedSeat] = useState([]);
+  const [selectedSeats, setSelectedSeats] = useState([]);
   const [id, setId] = useState();
 
   const selectSeat = (seatId) => {
@@ -15,9 +18,31 @@ const CapacityScreen = () => {
     console.log("seat select", seatId);
   };
 
+  const addToSeatArrFunc = (seatType) => {
+    const alreadySelectedSeats = [...selectedSeats];
+
+    const seatAlreadyExistsIndex = alreadySelectedSeats.findIndex(
+      (seat) => seat.id === id
+    );
+
+    if (seatAlreadyExistsIndex !== -1) {
+      setSelectedSeats(
+        alreadySelectedSeats.map((seat, index) => {
+          const newSeat = { ...seat };
+          if (index === seatAlreadyExistsIndex) {
+            newSeat.type = seatType;
+          }
+          return newSeat;
+        })
+      );
+    } else {
+      setSelectedSeats([...alreadySelectedSeats, { id, type: seatType }]);
+    }
+  };
+
   useEffect(() => {
-    console.log("SELECTED SEAT", selectedSeat);
-  }, [selectedSeat]);
+    console.log("SELECTED SEAT", selectedSeats);
+  }, [selectedSeats]);
 
   return (
     <View
@@ -38,7 +63,7 @@ const CapacityScreen = () => {
           }}
         >
           <>
-            <View
+            {/* <View
               style={{
                 flexDirection: "row",
                 alignItems: "center",
@@ -53,9 +78,7 @@ const CapacityScreen = () => {
                   borderRadius: 12,
                   justifyContent: "space-between",
                 }}
-                onPress={() => {
-                  console.log("selectSeat");
-                }}
+                onPress={() => addToSeatArrFunc()}
               />
               <Text
                 style={{
@@ -65,7 +88,7 @@ const CapacityScreen = () => {
               >
                 My Seat
               </Text>
-            </View>
+            </View> */}
             <View
               style={{
                 flexDirection: "row",
@@ -81,6 +104,7 @@ const CapacityScreen = () => {
                   borderRadius: 12,
                   justifyContent: "space-between",
                 }}
+                onPress={() => addToSeatArrFunc(seatTypes.MALE)}
               />
               <Text
                 style={{
@@ -88,7 +112,7 @@ const CapacityScreen = () => {
                   ...GlobalStyles.leftSubheader,
                 }}
               >
-                Share (Female){" "}
+                Female
               </Text>
             </View>
             <View
@@ -106,6 +130,7 @@ const CapacityScreen = () => {
                   borderRadius: 12,
                   justifyContent: "space-between",
                 }}
+                onPress={() => addToSeatArrFunc(seatTypes.FEMALE)}
               />
               <Text
                 style={{
@@ -113,7 +138,7 @@ const CapacityScreen = () => {
                   ...GlobalStyles.leftSubheader,
                 }}
               >
-                Share (Male){" "}
+                Male
               </Text>
             </View>
           </>
