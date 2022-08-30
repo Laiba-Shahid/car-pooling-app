@@ -3,6 +3,7 @@ import GlobalStyles from "../Styles/GlobalStyles";
 import CardModal from "../Components/Cardmodal";
 import { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { FullButton } from "../Components/FullButton";
 const CapacityScreen = () => {
     const [visible, setVisible] = useState(false);
     const [selectedSeat, setSelectedSeat] = useState([])
@@ -26,7 +27,7 @@ const CapacityScreen = () => {
 
     return (
 
-        <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff' }}>
+        <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff', justifyContent: 'space-between' }}>
             <CardModal visible={visible} setVisible={setVisible} >
                 <View style={{ width: 250, height: 250, borderRadius: 20 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom, }}>
@@ -84,6 +85,7 @@ const CapacityScreen = () => {
                     </View>
                 </View>
             </View>
+            <FullButton buttonAction={() => { console.log('ride started page ') }} title={'BOOK KARO'} />
         </View >
     );
 };
