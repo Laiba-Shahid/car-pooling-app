@@ -1,36 +1,55 @@
 import { View, Text } from "react-native";
 import GlobalStyles from "../Styles/GlobalStyles";
 import CardModal from "../Components/Cardmodal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const CapacityScreen = () => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
+    const [selectedSeat, setSelectedSeat] = useState([])
+    const [id, setId] = useState()
+
+
+
+    const selectSeat = (seatId) => {
+        setId(seatId);
+        setVisible(true)
+        console.log('seat select', seatId)
+    }
+
+
+
+    useEffect(() => {
+        console.log("SELECTED SEAT", selectedSeat);
+    }
+        , [selectedSeat])
+
+
     return (
 
         <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff' }}>
-            <CardModal visible={visible} setVisible={setVisible}>
+            <CardModal visible={visible} setVisible={setVisible} >
                 <View style={{ width: 250, height: 250, borderRadius: 20 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }}>
-
-                        </View>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom, }}>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }} onPress={() => {
+                            console.log('selectSeat', selected)
+                        }} />
                         <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>My Seat</Text>
-
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }}>
-
-                        </View>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#fb607f", borderRadius: 12, justifyContent: 'space-between' }} />
                         <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Female) </Text>
-
                     </View>
                     <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }}>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#3063ed", borderRadius: 12, justifyContent: 'space-between' }} />
 
-                        </View>
+
                         <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Male) </Text>
 
                     </View>
+
                 </View>
+
+
 
 
 
@@ -45,23 +64,23 @@ const CapacityScreen = () => {
 
                 <View style={{ width: 250, height: 250, backgroundColor: "#f0f3f5", borderRadius: 20, justifyContent: 'space-around', padding: 10, alignSelf: 'center' }}>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }}>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s1'} onPress={() => selectSeat('s1')} />
 
-                        </View>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }}>
 
-                        </View>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#ADADAD", borderRadius: 20, justifyContent: 'space-between' }} id={'s2'} />
+
+
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }}>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s3'} onPress={() => selectSeat('s3')} />
 
-                        </View>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }}>
 
-                        </View>
-                        <View style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }}>
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s4'} onPress={() => selectSeat('s4')} />
 
-                        </View>
+
+                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s5'} onPress={() => selectSeat('s5')} />
+
+
                     </View>
                 </View>
             </View>
