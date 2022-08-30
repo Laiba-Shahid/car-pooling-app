@@ -55,10 +55,10 @@ const CapacityScreen = () => {
 
             <View>
                 <View>
-                    <Text style={{ ...GlobalStyles.leftmainheader, ...GlobalStyles.mainmargintop, ...GlobalStyles.mainmarginbottom }}>
+                    <Text style={{ ...GlobalStyles.leftSubheader, ...GlobalStyles.mainmargintop, ...GlobalStyles.mainmarginbottom }}>
                         Seat Status
                     </Text>
-                    <View style={{ borderRadius: 12, width: 250, borderWidth: 1, borderColor: '#ADADAD', padding: 20 }}
+                    <View style={{ borderRadius: 12, width: "100%", borderWidth: 1, borderColor: '#ADADAD', padding: 20 }}
                     >
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{ alignItems: 'center', marginRight: 20 }}>
@@ -86,10 +86,10 @@ const CapacityScreen = () => {
                     </View>
                 </View>
                 <View >
-                    <Text style={{ ...GlobalStyles.leftmainheader, ...GlobalStyles.mainmarginbottom, ...GlobalStyles.mainmargintop }}>
+                    <Text style={{ ...GlobalStyles.leftSubheader, ...GlobalStyles.mainmarginbottom, ...GlobalStyles.mainmargintop }}>
                         Choose Your Seats
                     </Text>
-                    <View style={{ width: 250, height: 250, backgroundColor: "#f0f3f5", borderRadius: 20, justifyContent: 'space-around', padding: 10, alignSelf: 'center' }}>
+                    <View style={{ width: "100%", height: 250, backgroundColor: "#f0f3f5", borderRadius: 20, justifyContent: 'space-around', padding: 10, alignSelf: 'center' }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 20, justifyContent: 'space-between' }} id={'s1'} onPress={() => selectSeat('s1')} />
 
@@ -111,9 +111,18 @@ const CapacityScreen = () => {
                         </View>
                     </View>
                 </View>
+
+
+
             </View>
 
+
+
+
+
             <FullButton buttonAction={() => { console.log('ride started page ') }} title={'BOOK KARO'} />
+
+
         </View >
     );
 };
