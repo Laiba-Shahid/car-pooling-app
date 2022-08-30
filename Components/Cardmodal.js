@@ -21,7 +21,7 @@ const CardModal = ({ children, visible, setVisible }) => {
                 fullScreen={false}
                 overlayStyle={{
                     // justifyContent: "center",
-                    height: 300,
+                    height: 260,
                     alignItems: "center",
                 }}
             >

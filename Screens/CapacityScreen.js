@@ -29,25 +29,26 @@ const CapacityScreen = () => {
 
         <View style={{ flex: 1, alignItems: 'center', backgroundColor: '#ffffff', justifyContent: 'space-between' }}>
             <CardModal visible={visible} setVisible={setVisible} >
-                <View style={{ width: 250, height: 250, borderRadius: 20 }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom, }}>
-                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }} onPress={() => {
-                            console.log('selectSeat', selected)
-                        }} />
-                        <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>My Seat</Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
-                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#fb607f", borderRadius: 12, justifyContent: 'space-between' }} />
-                        <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Female) </Text>
-                    </View>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
-                        <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#3063ed", borderRadius: 12, justifyContent: 'space-between' }} />
+                <View style={{ width: 250, height: 250, borderRadius: 20, justifyContent: 'center' }}>
+                    <>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom, }}>
+                            <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#35b24c", borderRadius: 12, justifyContent: 'space-between' }} onPress={() => {
+                                console.log('selectSeat')
+                            }} />
+                            <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>My Seat</Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
+                            <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#fb607f", borderRadius: 12, justifyContent: 'space-between' }} />
+                            <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Female) </Text>
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', ...GlobalStyles.mainmarginbottom }}>
+                            <TouchableOpacity style={{ width: 70, height: 70, backgroundColor: "#3063ed", borderRadius: 12, justifyContent: 'space-between' }} />
 
 
-                        <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Male) </Text>
+                            <Text style={{ ...GlobalStyles.mainmarginleft, ...GlobalStyles.leftSubheader }}>Share (Male) </Text>
 
-                    </View>
-
+                        </View>
+                    </>
                 </View>
 
 
