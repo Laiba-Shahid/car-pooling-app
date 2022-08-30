@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { FullButton } from "../components/FullButton";
 import GlobalStyles from "../styles/GlobalStyles";
+import Icon from "react-native-vector-icons/AntDesign";
 
 const seatTypes = { MALE: 1, FEMALE: 2 };
 
@@ -51,13 +52,14 @@ const CapacityScreen = () => {
         alignItems: "center",
         backgroundColor: "#ffffff",
         justifyContent: "space-between",
+        width: "100%",
       }}
     >
       <CardModal visible={visible} setVisible={setVisible}>
         <View
           style={{
-            width: 250,
-            height: 250,
+            width: 290,
+            height: 290,
             borderRadius: 20,
             justifyContent: "center",
           }}
@@ -144,7 +146,28 @@ const CapacityScreen = () => {
           </>
         </View>
       </CardModal>
-      <View>
+
+      <View
+        style={{
+          alignItems: "center",
+        }}
+      >
+        <View
+          style={{
+            width: 290,
+            backgroundColor: "#f0f3f5",
+            borderRadius: 12,
+            justifyContent: "space-around",
+            padding: 10,
+            alignSelf: "center",
+            flexDirection: "row",
+          }}
+        >
+          <Icon name="pushpin" size={20} color="#ADADAD" />
+          <Text style={{ marginLeft: 10 }}>
+            Your fare will decrease when more users will book seat on this ride.
+          </Text>
+        </View>
         <View>
           <Text
             style={{
@@ -158,7 +181,7 @@ const CapacityScreen = () => {
           <View
             style={{
               borderRadius: 12,
-              width: 250,
+              width: 290,
               borderWidth: 1,
               borderColor: "#ADADAD",
               padding: 20,
@@ -228,7 +251,7 @@ const CapacityScreen = () => {
           </Text>
           <View
             style={{
-              width: 250,
+              width: 290,
               height: 250,
               backgroundColor: "#f0f3f5",
               borderRadius: 20,
@@ -238,7 +261,10 @@ const CapacityScreen = () => {
             }}
           >
             <View
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
             >
               <TouchableOpacity
                 style={{
@@ -304,6 +330,9 @@ const CapacityScreen = () => {
             </View>
           </View>
         </View>
+        <Text style={{ alignSelf: "flex-end", marginTop: 10 }}>
+          Estimated Fare : Rs 390
+        </Text>
       </View>
 
       <FullButton
