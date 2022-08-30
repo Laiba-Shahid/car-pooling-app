@@ -1,23 +1,67 @@
+import { useNavigation } from "@react-navigation/native";
+import {
+    Alert,
+    ImageBackground,
+    Modal,
+    StyleSheet,
+    Text,
+    View,
+} from "react-native";
+import { FullButton } from "../Components/FullButton";
 
+const imageName = require("../assets/chalo.jpg");
 
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { FullButton } from '../Components/FullButton';
-const imageName = require('../assets/chalo.jpg');
-const ChaloScreen = () => {
-
-    const navigator = useNavigation();
-
-    return <View style={styles.container}>
-        <ImageBackground source={imageName} resizeMode="cover" style={styles.image}>
-            <View style={styles.bottomTab}>
-                <View style={styles.buttonContainer}>
-                    <FullButton title="CHALO" buttonAction={() => { console.log('normal ride') }} />
-                    <FullButton title="SHARE KARO" buttonAction={() => { navigator.navigate("Capacity") }} />
+const ChaloScreen = ({ navigation }) => {
+    const showSuggestedRidesBtn = false;
+    const navigator = useNavigation("Capacity")
+    return (
+        <View style={styles.container}>
+            <ImageBackground
+                source={imageName}
+                resizeMode="cover"
+                style={styles.image}
+            >
+                <View style={styles.bottomTab}>
+                    <View style={styles.buttonContainer}>
+                        <View style={styles.chaloButtonContainer}>
+                            <FullButton
+                                title="CHALO"
+                                buttonAction={() => {
+                                    console.log("normal ride");
+                                    navigator.navigate("Suggested Rides", {});
+                                }}
+                                buttonStyle={{
+                                    ...(showSuggestedRidesBtn && {
+                                        borderTopRightRadius: 0,
+                                        borderBottomRightRadius: 0,
+                                    }),
+                                }}
+                            />
+                            {/* <FullButton
+                title="CHALO"
+                buttonAction={() => {
+                  console.log("normal ride");
+                  navigation.navigate("Suggested Rides", {});
+                }}
+                buttonStyle={{
+                  ...(showSuggestedRidesBtn && {
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                  }),
+                }}
+              /> */}
+                        </View>
+                        <FullButton
+                            title="SHARE KARO"
+                            buttonAction={() => {
+                                navigator.navigate("Capacity")
+                            }}
+                        />
+                    </View>
                 </View>
-            </View>
-        </ImageBackground>
-    </View>
+            </ImageBackground>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
@@ -26,35 +70,38 @@ const styles = StyleSheet.create({
     },
     image: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: "center",
+    },
+    modalView: {
+        flexDirection: "row",
+        backgroundColor: "red",
     },
     text: {
-        color: 'white',
+        color: "white",
         fontSize: 42,
         lineHeight: 84,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        backgroundColor: '#000000c0',
+        fontWeight: "bold",
+        textAlign: "center",
+        backgroundColor: "#000000c0",
     },
     bottomTab: {
-        minWidth: '100%',
-        position: 'absolute',
+        minWidth: "100%",
+        position: "absolute",
         bottom: 0,
         minHeight: 160,
         borderRadius: 50,
-        backgroundColor: '#ffffff',
-        justifyContent: 'center',
-
-
+        backgroundColor: "#ffffff",
+        justifyContent: "center",
     },
     buttonContainer: {
-
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: "center",
+        alignItems: "center",
     },
-
-
-
+    chaloButtonContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+    },
 });
 
-export default ChaloScreen
+export default ChaloScreen;
