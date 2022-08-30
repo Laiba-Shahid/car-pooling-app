@@ -6,6 +6,7 @@ import WhereToScreen from "./Screens/WheretoScreen";
 import ConfirmPickupScreen from "./Screens/Confirmpickup";
 import ChaloScreen from "./Screens/ChaloScreen";
 import { NavigationContainer } from "@react-navigation/native";
+import CapacityScreen from "./Screens/CapacityScreen";
 import SuggestedRidesScreen from "./Screens/SuggestedRidesScreen";
 
 export default function App() {
@@ -21,6 +22,17 @@ export default function App() {
         <Stack.Screen name="Start" component={StartScreen} />
         <Stack.Screen name="WhereTo" component={WhereToScreen} />
         <Stack.Screen name="ConfirmPickup" component={ConfirmPickupScreen} />
+        <Stack.Screen name="Capacity" component={CapacityScreen} options={{
+          title: "SELECT SEATS",
+          headerStyle: {
+            backgroundColor: "#28bc4e",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+          headerShadowVisible: true,
+        }} />
         <Stack.Screen
           name="Suggested Rides"
           component={SuggestedRidesScreen}
