@@ -33,8 +33,8 @@ const CapacityScreen = () => {
       <CardModal visible={visible} setVisible={setVisible}>
         <View
           style={{
-            width: 290,
-            height: 290,
+            width: 300,
+            height: 300,
             borderRadius: 20,
             justifyContent: "center",
           }}
@@ -129,8 +129,8 @@ const CapacityScreen = () => {
       >
         <View
           style={{
-            width: 290,
-            backgroundColor: "#f0f3f5",
+            width: 300,
+            backgroundColor: "#e8f6e9",
             borderRadius: 12,
             justifyContent: "space-around",
             padding: 10,
@@ -138,8 +138,8 @@ const CapacityScreen = () => {
             flexDirection: "row",
           }}
         >
-          <Icon name="pushpin" size={20} color="#ADADAD" />
-          <Text style={{ marginLeft: 10 }}>
+          <Icon name="pushpin" size={20} color="#247e38" />
+          <Text style={{ marginLeft: 10, color: "#247e38" }}>
             Your fare will decrease when more users will book seat on this ride.
           </Text>
         </View>
@@ -156,7 +156,7 @@ const CapacityScreen = () => {
           <View
             style={{
               borderRadius: 12,
-              width: 290,
+              width: 300,
               borderWidth: 1,
               borderColor: "#ADADAD",
               padding: 20,
@@ -226,7 +226,7 @@ const CapacityScreen = () => {
           </Text>
           <View
             style={{
-              width: 290,
+              width: 300,
               height: 250,
               backgroundColor: "#f0f3f5",
               borderRadius: 20,
