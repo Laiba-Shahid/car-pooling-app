@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
-import { FullButton } from "../Components/FullButton";
+import { FullButton } from "../components/FullButton";
 
 const imageName = require("../assets/chalo.jpg");
 
